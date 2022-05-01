@@ -9,7 +9,7 @@ Array.prototype.random = function () {
 }
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight);
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#bg'),
 });
@@ -20,6 +20,8 @@ camera.position.setZ(30);
 camera.position.setX(-3);
 
 renderer.render(scene, camera);
+
+const nodesToSpin = [];
 
 function setupNodes() {
   const randomScale = Math.random() * 5.0;
@@ -46,10 +48,11 @@ function setupNodes() {
   const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(200));
   object.position.set(x, y, z);
 
+  nodesToSpin.push(object);
   scene.add(object);
 }
 
-Array(25).fill().forEach(setupNodes);
+Array(50).fill().forEach(setupNodes);
 
 // Lights
 
@@ -104,6 +107,12 @@ function moveCamera() {
   pat.rotation.y += 0.0005;
   pat.rotation.z += 0.001;
 
+  nodesToSpin.forEach(function (node) {
+    node.rotation.x += 0.01;
+    node.rotation.y += 0.005;
+    node.rotation.z += 0.01;
+  });
+
   camera.position.z = t * -0.01;
   camera.position.x = t * -0.0002;
   camera.rotation.y = t * -0.0002;
@@ -116,6 +125,12 @@ moveCamera();
 
 function animate() {
   requestAnimationFrame(animate);
+
+  nodesToSpin.forEach(function (node) {
+    node.rotation.x += 0.01;
+    node.rotation.y += 0.005;
+    node.rotation.z += 0.01;
+  });
 
   pat.rotation.x += 0.001;
   pat.rotation.y += 0.0005;
