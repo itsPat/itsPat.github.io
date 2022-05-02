@@ -26,8 +26,6 @@ function setupNodes() {
   const randomScale = Math.random() * 5.0;
 
   const geometry = [
-    new THREE.TorusGeometry(randomScale, randomScale * 0.33, 16, 100),
-    new THREE.SphereGeometry(randomScale * 0.5),
     new THREE.BoxGeometry(randomScale, randomScale, randomScale),
     new THREE.TetrahedronGeometry(randomScale),
     new THREE.IcosahedronGeometry(randomScale),
@@ -120,7 +118,7 @@ moveCamera();
 
 function animate() {
   requestAnimationFrame(animate);
-
+  
   nodesToSpin.forEach(function (node) {
     node.rotation.x += 0.01;
     node.rotation.y += 0.005;
