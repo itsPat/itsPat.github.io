@@ -102,10 +102,6 @@ pat.position.x = 2;
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
 
-  pat.rotation.x += 0.001;
-  pat.rotation.y += 0.0005;
-  pat.rotation.z += 0.001;
-
   nodesToSpin.forEach(function (node) {
     node.rotation.x += t * 0.01;
     node.rotation.y += t * 0.005;
