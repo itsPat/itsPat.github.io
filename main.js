@@ -103,14 +103,14 @@ function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
 
   nodesToSpin.forEach(function (node) {
-    node.rotation.x += t * 0.01;
-    node.rotation.y += t * 0.005;
-    node.rotation.z += t * 0.01;
+    node.rotation.x += 0.01;
+    node.rotation.y += 0.005;
+    node.rotation.z += 0.01;
   });
 
-  camera.position.z = -0.01;
-  camera.position.x = -0.0002;
-  camera.rotation.y = -0.0002;
+  camera.position.z = -0.001;
+  camera.position.x = -0.00002;
+  camera.rotation.y = -0.00002;
 }
 
 document.body.onscroll = moveCamera;
