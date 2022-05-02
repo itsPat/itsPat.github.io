@@ -102,19 +102,19 @@ pat.position.x = 2;
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
 
-  pat.rotation.x += t * 0.001;
-  pat.rotation.y += t * 0.0005;
-  pat.rotation.z += t * 0.001;
+  pat.rotation.x += 0.001;
+  pat.rotation.y += 0.0005;
+  pat.rotation.z += 0.001;
 
   nodesToSpin.forEach(function (node) {
-    node.rotation.x += t * 0.01;
-    node.rotation.y += t * 0.005;
-    node.rotation.z += t * 0.01;
+    node.rotation.x += 0.01;
+    node.rotation.y += 0.005;
+    node.rotation.z += 0.01;
   });
 
-  camera.position.z = t * -0.01;
-  camera.position.x = t * -0.0002;
-  camera.rotation.y = t * -0.0002;
+  camera.position.z = -0.01;
+  camera.position.x = -0.0002;
+  camera.rotation.y = -0.0002;
 }
 
 document.body.onscroll = moveCamera;
