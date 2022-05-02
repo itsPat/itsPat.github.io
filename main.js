@@ -107,9 +107,9 @@ function moveCamera() {
   pat.rotation.z += 0.001;
 
   nodesToSpin.forEach(function (node) {
-    node.rotation.x += 0.01;
-    node.rotation.y += 0.005;
-    node.rotation.z += 0.01;
+    node.rotation.x += t * 0.01;
+    node.rotation.y += t * 0.005;
+    node.rotation.z += t * 0.01;
   });
 
   camera.position.z = -0.01;
